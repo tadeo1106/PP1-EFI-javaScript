@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navar } from "../commponets/navar";
 import { Footer } from "../commponets/Footer";
 import { AdminSeccion } from "../commponets/AdminSeccion";
+import { LoginAdmin } from "../commponets/LoginAdmin";
 
 const SECCIONES = {
   peliculas: {
@@ -88,7 +89,20 @@ const SECCIONES = {
 };
 
 export function Admin() {
+  const [logueado, setLogueado] = useState(
+    () => localStorage.getItem("isAdmin") === "true"
+  );
   const [seccionActiva, setSeccionActiva] = useState("peliculas");
+
+  if (!logueado) {
+    return <LoginAdmin onLogin={() => setLogueado(true)} />;
+  }
+
+  const handleCerrarSesion = () => {
+    localStorage.removeItem("isAdmin");
+    setLogueado(false);
+  };
+
   const seccionActual = SECCIONES[seccionActiva];
 
   return (
@@ -109,6 +123,7 @@ export function Admin() {
             </div>
             <button
               type="button"
+              onClick={handleCerrarSesion}
               className="bg-neutral-950 text-white hover:bg-red-700 transition-colors font-mono px-4 py-2 text-xs uppercase tracking-wider cursor-pointer"
             >
               Cerrar sesión
