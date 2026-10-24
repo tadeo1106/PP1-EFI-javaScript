@@ -40,3 +40,25 @@ export function MovieCard({
     </article>
   );
 }
+
+export function CarteleraCard({ imagen, titulo, duracion, genero }) {
+  return (
+    <>
+      <div className="flex gap-10 items-center border-b py-2 w-full ">
+        <div className="relative w-28 aspect-[2/3] shrink-0 m-3 overflow-hidden bg-neutral-100">
+          <img
+            src={imagen}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex flex-col items-start">
+          <h1 className="font-bold text-5xl">{titulo}</h1>
+          <h1 className="text-neutral-400 font-bold text-2xl">
+            {genero}. {duracion}
+          </h1>
+        </div>
+      </div>
+    </>
+  );
+}
