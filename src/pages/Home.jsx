@@ -3,6 +3,7 @@ import { Hero } from "../commponets/Hero";
 import { Navar } from "../commponets/navar";
 import { Footer } from "../commponets/Footer";
 import { useFunciones } from "../hook/UseFunciones";
+import { NavLink } from "react-router-dom";
 export function Home() {
   const { proximasFunciones, isLoading, error } = useFunciones();
 
@@ -36,9 +37,12 @@ export function Home() {
             })}
           </div>
           <div className="flex justify-end ">
-            <a href="" className="font-mono mx-5 mt-2 p-2 border-b">
+            <NavLink
+              to="/Cartelera"
+              className="font-mono mx-5 mt-2 p-2 border-b"
+            >
               explorar cartelera →
-            </a>
+            </NavLink>
           </div>
         </section>
       </div>
