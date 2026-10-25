@@ -4,7 +4,6 @@ import { Navar } from "../commponets/navar";
 import { Footer } from "../commponets/Footer";
 import { useFunciones } from "../hook/UseFunciones";
 export function Home() {
-  const imagen = "/001_p.jpg";
   const { proximasFunciones, isLoading, error } = useFunciones();
 
   return (

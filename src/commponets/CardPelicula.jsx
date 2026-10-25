@@ -12,7 +12,7 @@ export function MovieCard({
         <span className="font-bold text-red-700">{mes}</span>
       </div>
 
-      <div className="relative w-28 aspect-[2/3] shrink-0 m-3 overflow-hidden bg-neutral-100">
+      <div className="relative w-28 aspect-2/3 shrink-0 m-3 overflow-hidden bg-neutral-100">
         <img
           src={imagen}
           alt={titulo}
@@ -38,5 +38,40 @@ export function MovieCard({
         </div>
       </div>
     </article>
+  );
+}
+
+export function CarteleraCard({ imagen, titulo, duracion, genero, index }) {
+  return (
+    <div
+      style={{ animationDelay: `${Math.min(index, 8) * 80}ms` }}
+      className="... animate-fade-up motion-reduce:animate-none ..."
+    >
+      <div
+        className="flex gap-10 items-center border-b py-2 w-full
+                  group relative ... transition-all duration-300
+                  hover:-translate-y-1 hover:bg-neutral-50"
+      >
+        <span
+          className="absolute left-0 top-0 h-full w-1 bg-red-600 origin-top
+                     scale-y-0 group-hover:scale-y-100 transition-transform duration-300"
+        ></span>
+        <div className="relative w-28 aspect-2/3 shrink-0 m-3 overflow-hidden bg-neutral-100">
+          <img
+            src={imagen}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex flex-col items-start">
+          <h1 className="font-bold text-5xl group-hover:text-red-600">
+            {titulo}
+          </h1>
+          <h1 className="text-neutral-400 font-bold text-2xl py-2">
+            {genero}. {duracion}
+          </h1>
+        </div>
+      </div>
+    </div>
   );
 }
