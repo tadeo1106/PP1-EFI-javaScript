@@ -50,7 +50,7 @@ export function CarteleraCard({ imagen, titulo, duracion, genero, index }) {
       <div
         className="flex gap-10 items-center border-b py-2 w-full
                   group relative ... transition-all duration-300
-                  hover:-translate-y-1 hover:bg-neutral-50"
+                   hover:bg-neutral-50 hover:zoom-120"
       >
         <span
           className="absolute left-0 top-0 h-full w-1 bg-red-600 origin-top
