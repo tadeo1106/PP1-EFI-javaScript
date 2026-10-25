@@ -25,8 +25,11 @@ export function Cartelera() {
           <div className="">
             <h1 className="font-mono mb-4 text-2xl text-gray-400 ">Genero</h1>
             <div>
-              {generos.map((genero) => (
-                <CheckboxGeneros genero={genero.nombre}></CheckboxGeneros>
+              {generos.map((genero, index) => (
+                <CheckboxGeneros
+                  index={index}
+                  genero={genero.nombre}
+                ></CheckboxGeneros>
               ))}
             </div>
           </div>
@@ -37,8 +40,9 @@ export function Cartelera() {
             <h1 className="">Cartelera</h1>
           </div>
           <div>
-            {peliculas.map((pelicula) => (
+            {peliculas.map((pelicula, index) => (
               <CarteleraCard
+                index={index}
                 imagen={pelicula.portada}
                 titulo={pelicula.nombre}
                 duracion={pelicula.duracion}
