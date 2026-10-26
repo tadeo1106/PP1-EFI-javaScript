@@ -45,12 +45,12 @@ export function CarteleraCard({ imagen, titulo, duracion, genero, index }) {
   return (
     <div
       style={{ animationDelay: `${Math.min(index, 8) * 80}ms` }}
-      className="... animate-fade-up motion-reduce:animate-none ..."
+      className="animate-fade-up motion-reduce:animate-none "
     >
       <div
         className="flex gap-10 items-center border-b py-2 w-full
-                  group relative ... transition-all duration-300
-                  hover:-translate-y-1 hover:bg-neutral-50"
+                  group relative transition-all duration-300
+                   hover:bg-neutral-50 hover:zoom-120"
       >
         <span
           className="absolute left-0 top-0 h-full w-1 bg-red-600 origin-top
@@ -59,16 +59,16 @@ export function CarteleraCard({ imagen, titulo, duracion, genero, index }) {
         <div className="relative w-28 aspect-2/3 shrink-0 m-3 overflow-hidden bg-neutral-100">
           <img
             src={imagen}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             loading="lazy"
           />
         </div>
         <div className="flex flex-col items-start">
-          <h1 className="font-bold text-5xl group-hover:text-red-600">
+          <h1 className="font-bold text-5xl group-hover:text-red-600 transition-colors">
             {titulo}
           </h1>
-          <h1 className="text-neutral-400 font-bold text-2xl py-2">
-            {genero}. {duracion}
+          <h1 className="text-neutral-400 font-mono text-2xl py-2">
+            {genero} . {duracion} min
           </h1>
         </div>
       </div>
