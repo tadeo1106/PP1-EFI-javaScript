@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import { Home } from "./pages/Home";
 import { Admin } from "./pages/Admin";
@@ -9,7 +9,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/Cartelera" element={<Cartelera></Cartelera>}></Route>
+        <Route
+          path="/cartelera"
+          element={<Navigate to="/cartelera/en-cartelera" replace />}
+        />
+        <Route path="/cartelera/:estado" element={<Cartelera />} />
       </Routes>
     </BrowserRouter>
   );

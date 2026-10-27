@@ -1,12 +1,6 @@
-export function MovieCard({
-  dia,
-  titulo,
-  imagen,
-  etiqueta = "ESTA SEMANA",
-  mes,
-}) {
+export function MovieCard({ dia, titulo, imagen, etiqueta, mes }) {
   return (
-    <article className="relative flex border border-black bg-white">
+    <article className="relative flex border border-black bg-white hover:scale-105 transition-transform duration-500">
       <div className="w-14 shrink-0 bg-neutral-950 text-white flex flex-col items-center justify-center">
         <span className="text-3xl font-black leading-none">{dia}</span>
         <span className="font-bold text-red-700">{mes}</span>

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 const Enlaces = [
   { texto: "inicio", path: "/" },
-  { texto: "cartelera", path: "/Cartelera" },
+  { texto: "cartelera", path: "/cartelera" },
 ];
 
 export function Navar() {

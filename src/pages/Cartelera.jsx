@@ -4,13 +4,16 @@ import { usePeliculas } from "../hook/UsePeliculas";
 import { useGeneros } from "../hook/UseGeneros";
 import { CheckboxGeneros } from "../commponets/CheckboxGeneros";
 import { useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import { Footer } from "../commponets/Footer";
+
 export function Cartelera() {
-  const [estado, setEstado] = useState("en_cartelera");
+  const { estado } = useParams();
+  const estadoApi = estado;
 
   const [generoSelecionado, SetGeneroSelecionado] = useState("todos");
 
-  const { peliculas, loading, error } = usePeliculas(estado);
+  const { peliculas, loading, error } = usePeliculas(estadoApi, 10);
   const { generos, isloading, err } = useGeneros();
 
   const handleSelectGenero = (nombre) => {
@@ -33,18 +36,22 @@ export function Cartelera() {
             <div>
               <h1 className="font-mono text-3xl mb-5 text-gray-400">vista</h1>
               <div className="flex flex-col">
-                <button
-                  className={`font-semibold text-left p-2 text-2xl border-l-4 hover:scale-110  ${estado === "en_cartelera" ? "border-red-600  text-red-600 " : "border-gray-200 hover:text-red-600"}`}
-                  onClick={() => setEstado("en_cartelera")}
+                <NavLink
+                  to="/cartelera/en-cartelera"
+                  className={({ isActive }) =>
+                    `font-semibold text-left p-2 text-2xl border-l-4 hover:scale-110 duration-400 ${isActive ? "border-red-600 text-red-600" : "border-gray-200 hover:text-red-600"}`
+                  }
                 >
                   Cartelera
-                </button>
-                <button
-                  className={`font-semibold text-left p-2 text-2xl border-l-4 hover:scale-110 ${estado === "proximamente" ? "border-red-600" : "border-gray-200 hover:text-red-600"}`}
-                  onClick={() => setEstado("proximamente")}
+                </NavLink>
+                <NavLink
+                  to="/cartelera/proximamente"
+                  className={({ isActive }) =>
+                    `font-semibold text-left p-2 text-2xl border-l-4 hover:scale-110 duration-400   ${isActive ? "border-red-600 text-red-600" : "border-gray-200 hover:text-red-600"}`
+                  }
                 >
                   proximamente
-                </button>
+                </NavLink>
               </div>
             </div>
             <div className="">
