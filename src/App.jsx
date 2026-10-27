@@ -3,6 +3,7 @@ import "./App.css";
 import { Home } from "./pages/Home";
 import { Admin } from "./pages/Admin";
 import { Cartelera } from "./pages/Cartelera";
+import { Pelicula } from "./pages/Pelicula";
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
           element={<Navigate to="/cartelera/en-cartelera" replace />}
         />
         <Route path="/cartelera/:estado" element={<Cartelera />} />
+        <Route path="/pelicula/:id" element={<Pelicula />} />
       </Routes>
     </BrowserRouter>
   );

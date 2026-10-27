@@ -28,6 +28,7 @@ export function Home() {
 
               return (
                 <MovieCard
+                  id={funcion.pelicula.id}
                   dia={fecha.getDate()}
                   etiqueta={"esta semena"}
                   imagen={funcion.pelicula.portada}
@@ -51,6 +52,7 @@ export function Home() {
           <div className="grid gap-7 grid-cols-3  mt-10 mx-5">
             {peliculas.map((pelicula) => (
               <MovieCard
+                id={pelicula.id}
                 etiqueta={"proximamente"}
                 imagen={pelicula.portada}
                 titulo={pelicula.nombre}

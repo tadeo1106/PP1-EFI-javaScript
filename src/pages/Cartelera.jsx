@@ -82,6 +82,7 @@ export function Cartelera() {
             <div key={`${estado}-${generoSelecionado}`}>
               {peliculasFiltradas.map((pelicula, index) => (
                 <CarteleraCard
+                  id={pelicula.id}
                   key={estado.id}
                   index={index}
                   imagen={pelicula.portada}
