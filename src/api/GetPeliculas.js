@@ -12,3 +12,16 @@ export async function GetPeliculas(estado, limit) {
     throw error;
   }
 }
+
+export async function GetPeliculasDetalle(id) {
+  try {
+    const respuesta = await fetch(`http://127.0.0.1:8000/peliculas/${id}`);
+    if (!respuesta.ok) {
+      throw new Error("error al cargar la pelicula");
+    }
+    return respuesta.json();
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
