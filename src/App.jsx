@@ -11,8 +11,12 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/admin" element={<Admin />} />
-
+        <Route path="/admin/*" element={<Admin />}>
+          <Route path="peliculas" element={<div></div>} />
+          <Route path="funciones" element={<div></div>} />
+          <Route path="salas" element={<div></div>} />
+          <Route path="generos" element={<div></div>} />
+        </Route>
         <Route path="/cartelera/*" element={<Cartelera />}>
           <Route index element={<Navigate to="en-cartelera" replace />} />
           <Route

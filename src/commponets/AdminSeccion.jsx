@@ -1,4 +1,4 @@
-export function AdminSeccion({ campos, filas }) {
+export function AdminSeccion({ campos = [], filas = [] }) {
   return (
     <div>
       {/* Formulario */}
