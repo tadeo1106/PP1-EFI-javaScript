@@ -1,10 +1,8 @@
-import { useState } from "react";
+import { NavLink, Outlet } from "react-router-dom";
 import { Navar } from "../commponets/navar";
 import { Footer } from "../commponets/Footer";
-import { AdminSeccion } from "../commponets/AdminSeccion";
-import { LoginAdmin } from "../commponets/LoginAdmin";
 
-const SECCIONES = {
+export const SECCIONES = {
   peliculas: {
     titulo: "Películas",
     campos: [
@@ -89,22 +87,6 @@ const SECCIONES = {
 };
 
 export function Admin() {
-  const [logueado, setLogueado] = useState(
-    () => localStorage.getItem("isAdmin") === "true"
-  );
-  const [seccionActiva, setSeccionActiva] = useState("peliculas");
-
-  if (!logueado) {
-    return <LoginAdmin onLogin={() => setLogueado(true)} />;
-  }
-
-  const handleCerrarSesion = () => {
-    localStorage.removeItem("isAdmin");
-    setLogueado(false);
-  };
-
-  const seccionActual = SECCIONES[seccionActiva];
-
   return (
     <>
       <div className="m-5">
@@ -121,41 +103,27 @@ export function Admin() {
                 Panel de administración
               </h1>
             </div>
-            <button
-              type="button"
-              onClick={handleCerrarSesion}
-              className="bg-neutral-950 text-white hover:bg-red-700 transition-colors font-mono px-4 py-2 text-xs uppercase tracking-wider cursor-pointer"
-            >
-              Cerrar sesión
-            </button>
           </div>
 
           {/* Pestañas de secciones */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {Object.entries(SECCIONES).map(([key, data]) => {
-              const esActiva = seccionActiva === key;
-              return (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => setSeccionActiva(key)}
-                  className={`font-mono text-xs uppercase tracking-wider px-5 py-2.5 transition-colors cursor-pointer border border-black ${
-                    esActiva
+            {Object.entries(SECCIONES).map(([key, data]) => (
+              <NavLink
+                key={key}
+                to={`/admin/${key}`}
+                className={({ isActive }) =>
+                  `font-mono text-xs uppercase tracking-wider px-5 py-2.5 transition-colors cursor-pointer border border-black ${
+                    isActive
                       ? "bg-neutral-950 text-white"
                       : "bg-white text-black hover:bg-neutral-100"
-                  }`}
-                >
-                  {data.titulo}
-                </button>
-              );
-            })}
+                  }`
+                }
+              >
+                {data.titulo}
+              </NavLink>
+            ))}
           </div>
-
-          {/* Sección activa */}
-          <AdminSeccion
-            campos={seccionActual.campos}
-            filas={seccionActual.filas}
-          />
+          <Outlet />
         </main>
       </div>
 
