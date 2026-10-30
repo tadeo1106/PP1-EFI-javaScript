@@ -1,11 +1,17 @@
 import { useOutletContext } from "react-router-dom";
-import { usePeliculas } from "../hook/UsePeliculas";
-import { CarteleraCard } from "./CardPelicula";
+import { usePeliculas } from "../../hook/UsePeliculas";
+import { CarteleraCard } from "../CardPelicula";
 
 export function ListaCartelera({ estado }) {
-  const { generoSelecionado = "todos" } = useOutletContext();
+  const { generoId = null } = useOutletContext();
 
-  const { peliculas, loading, err } = usePeliculas(estado, 10);
+  const { peliculas, loading, err } = usePeliculas(
+    estado,
+    10,
+    1,
+    null,
+    generoId,
+  );
 
   const tituloSeccion =
     estado === "en-cartelera" ? "Cartelera" : "Proximamente";
@@ -40,28 +46,21 @@ export function ListaCartelera({ estado }) {
     );
   }
 
-  const peliculasFiltradas =
-    generoSelecionado === "todos"
-      ? peliculas
-      : peliculas.filter(
-          (pelicula) => pelicula.genero?.nombre === generoSelecionado,
-        );
-
   return (
     <div>
       <div className="border-b-2 text-5xl px-0 pb-3 dark:border-neutral-800">
         <h1 className="font-bold uppercase">{tituloSeccion}</h1>
       </div>
 
-      {peliculasFiltradas.length === 0 ? (
+      {peliculas.length === 0 ? (
         <div className="py-16 text-center">
           <p className="font-mono text-lg text-neutral-500">
-            No se encontraron películas para el género "{generoSelecionado}".
+            No se encontraron películas
           </p>
         </div>
       ) : (
-        <div key={`${estado}-${generoSelecionado}`}>
-          {peliculasFiltradas.map((pelicula, index) => (
+        <div key={`${estado}-${generoId ?? "todos"}`}>
+          {peliculas.map((pelicula, index) => (
             <CarteleraCard
               key={pelicula.id}
               id={pelicula.id}

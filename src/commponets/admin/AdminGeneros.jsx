@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useGeneros } from "../hook/UseGeneros";
-import { CampoTexto } from "./CampoTexto";
+import { useGeneros } from "../../hook/UseGeneros";
+import { CampoTexto } from "../general/CampoTexto";
 import { TablaAdmin } from "./TablaAdmin";
 
 export function AdminGeneros() {

@@ -3,13 +3,13 @@ import "./App.css";
 import { Home } from "./pages/Home";
 import { Admin } from "./pages/Admin";
 import { Cartelera } from "./pages/Cartelera";
-import { ListaCartelera } from "./commponets/ListaCartelera";
+import { ListaCartelera } from "./commponets/cartelera/ListaCartelera";
 import { Pelicula } from "./pages/Pelicula";
 import { TemaProvider } from "./context/temaContext";
-import { AdminPeliculas } from "./commponets/AdminPeliculas";
-import { AdminFunciones } from "./commponets/AdminFunciones";
-import { AdminSalas } from "./commponets/AdminSalas";
-import { AdminGeneros } from "./commponets/AdminGeneros";
+import { AdminPeliculas } from "./commponets/admin/AdminPeliculas";
+import { AdminFunciones } from "./commponets/admin/AdminFunciones";
+import { AdminSalas } from "./commponets/admin/AdminSalas";
+import { AdminGeneros } from "./commponets/admin/AdminGeneros";
 
 function App() {
   return (

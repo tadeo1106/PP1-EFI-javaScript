@@ -3,15 +3,17 @@ import { GetPeliculasDetalle } from "../api/GetPeliculas";
 import { useEffect } from "react";
 
 export function usePeliculaDetalle(id) {
-  const [error, SetError] = useState(null);
-  const [pelicula, SetPelicula] = useState([null]);
-  const [isLoading, SetIsloading] = useState(true);
+  const [error, setError] = useState(null);
+  const [pelicula, setPelicula] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (!id) return;
     GetPeliculasDetalle(id)
-      .then((peli) => SetPelicula(peli))
-      .catch((err) => SetError(err))
-      .finally(() => SetIsloading(false));
+      .then((peli) => setPelicula(peli))
+      .catch((err) => setError(err))
+      .finally(() => setIsLoading(false));
   }, [id]);
-  return { pelicula, error, isLoading };
+
+  return { pelicula, error, err: error, isLoading, loading: isLoading };
 }

@@ -13,5 +13,5 @@ export function useSalas() {
       .finally(() => setLoading(false));
   }, []);
 
-  return { salas, loading, error };
+  return { salas, loading, isLoading: loading, isloading: loading, error, err: error };
 }

@@ -1,16 +1,16 @@
 import { Outlet, NavLink } from "react-router-dom";
-import { Navar } from "../commponets/navar";
-import { Footer } from "../commponets/Footer";
+import { Navar } from "../commponets/general/navar";
+import { Footer } from "../commponets/general/Footer";
 import { useGeneros } from "../hook/UseGeneros";
-import { CheckboxGeneros } from "../commponets/CheckboxGeneros";
+import { CheckboxGeneros } from "../commponets/cartelera/CheckboxGeneros";
 import { useState } from "react";
 
 export function Cartelera() {
-  const [generoSelecionado, SetGeneroSelecionado] = useState("todos");
+  const [generoId, setGeneroId] = useState(null);
   const { generos, isloading, err } = useGeneros();
 
-  const handleSelectGenero = (nombre) => {
-    SetGeneroSelecionado((prev) => (prev === nombre ? "todos" : nombre));
+  const handleSelectGenero = (id) => {
+    setGeneroId((prev) => (prev === id ? null : id));
   };
 
   return (
@@ -54,8 +54,8 @@ export function Cartelera() {
               <div>
                 <CheckboxGeneros
                   genero="Todos"
-                  isCheked={generoSelecionado === "todos"}
-                  onChange={() => SetGeneroSelecionado("todos")}
+                  isCheked={generoId === null}
+                  onChange={() => setGeneroId(null)}
                 />
                 {isloading && (
                   <p className="font-mono text-xs text-gray-400">
@@ -73,8 +73,8 @@ export function Cartelera() {
                       key={genero.id}
                       index={index}
                       genero={genero.nombre}
-                      isCheked={generoSelecionado === genero.nombre}
-                      onChange={() => handleSelectGenero(genero.nombre)}
+                      isCheked={generoId === genero.id}
+                      onChange={() => handleSelectGenero(genero.id)}
                     />
                   ))}
               </div>
@@ -82,7 +82,7 @@ export function Cartelera() {
           </main>
 
           <section className="col-span-3">
-            <Outlet context={{ generoSelecionado }} />
+            <Outlet context={{ generoId }} />
           </section>
         </div>
       </div>
