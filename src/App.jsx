@@ -6,6 +6,10 @@ import { Cartelera } from "./pages/Cartelera";
 import { ListaCartelera } from "./commponets/ListaCartelera";
 import { Pelicula } from "./pages/Pelicula";
 import { TemaProvider } from "./context/temaContext";
+import { AdminPeliculas } from "./commponets/AdminPeliculas";
+import { AdminFunciones } from "./commponets/AdminFunciones";
+import { AdminSalas } from "./commponets/AdminSalas";
+import { AdminGeneros } from "./commponets/AdminGeneros";
 
 function App() {
   return (
@@ -13,11 +17,13 @@ function App() {
       <TemaProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<Navigate to="/admin/peliculas" replace />} />
           <Route path="/admin/*" element={<Admin />}>
-            <Route path="peliculas" element={<div></div>} />
-            <Route path="funciones" element={<div></div>} />
-            <Route path="salas" element={<div></div>} />
-            <Route path="generos" element={<div></div>} />
+            <Route index element={<Navigate to="peliculas" replace />} />
+            <Route path="peliculas" element={<AdminPeliculas />} />
+            <Route path="funciones" element={<AdminFunciones />} />
+            <Route path="salas" element={<AdminSalas />} />
+            <Route path="generos" element={<AdminGeneros />} />
           </Route>
           <Route path="/cartelera/*" element={<Cartelera />}>
             <Route index element={<Navigate to="en-cartelera" replace />} />

@@ -2,89 +2,12 @@ import { NavLink, Outlet } from "react-router-dom";
 import { Navar } from "../commponets/navar";
 import { Footer } from "../commponets/Footer";
 
-export const SECCIONES = {
-  peliculas: {
-    titulo: "Películas",
-    campos: [
-      { name: "nombre", label: "Nombre", type: "text" },
-      { name: "portada", label: "Portada (URL)", type: "url" },
-      { name: "duracion", label: "Duración (min)", type: "number" },
-      { name: "genero", label: "Género", type: "text" },
-    ],
-    filas: [
-      {
-        id: 1,
-        nombre: "Scarface",
-        portada: "/scarface.jpg",
-        duracion: 170,
-        genero: "Crimen / Drama",
-      },
-      {
-        id: 2,
-        nombre: "The Batman",
-        portada: "/batman.jpg",
-        duracion: 176,
-        genero: "Acción / Suspenso",
-      },
-      {
-        id: 3,
-        nombre: "Duna: Parte 2",
-        portada: "/duna.jpg",
-        duracion: 166,
-        genero: "Ciencia Ficción",
-      },
-    ],
-  },
-  funciones: {
-    titulo: "Funciones",
-    campos: [
-      { name: "pelicula", label: "Película", type: "text" },
-      { name: "sala", label: "Sala", type: "text" },
-      { name: "fecha_hora", label: "Fecha y hora", type: "datetime-local" },
-    ],
-    filas: [
-      {
-        id: 1,
-        pelicula: "The Batman",
-        sala: "Sala 1 - IMAX",
-        fecha_hora: "2026-10-25T18:00",
-      },
-      {
-        id: 2,
-        pelicula: "Scarface",
-        sala: "Sala 2 - 4DX",
-        fecha_hora: "2026-10-25T21:30",
-      },
-      {
-        id: 3,
-        pelicula: "Duna: Parte 2",
-        sala: "Sala 3 - Tradicional",
-        fecha_hora: "2026-10-26T16:00",
-      },
-    ],
-  },
-  salas: {
-    titulo: "Salas",
-    campos: [
-      { name: "nombre", label: "Nombre", type: "text" },
-      { name: "capacidad", label: "Capacidad", type: "number" },
-    ],
-    filas: [
-      { id: 1, nombre: "Sala 1 - IMAX", capacidad: 280 },
-      { id: 2, nombre: "Sala 2 - 4DX", capacidad: 160 },
-      { id: 3, nombre: "Sala 3 - Tradicional", capacidad: 220 },
-    ],
-  },
-  generos: {
-    titulo: "Géneros",
-    campos: [{ name: "nombre", label: "Nombre", type: "text" }],
-    filas: [
-      { id: 1, nombre: "Acción" },
-      { id: 2, nombre: "Ciencia Ficción" },
-      { id: 3, nombre: "Terror" },
-    ],
-  },
-};
+const SECCIONES = [
+  { key: "peliculas", titulo: "Películas" },
+  { key: "funciones", titulo: "Funciones" },
+  { key: "salas", titulo: "Salas" },
+  { key: "generos", titulo: "Géneros" },
+];
 
 export function Admin() {
   return (
@@ -107,7 +30,7 @@ export function Admin() {
 
           {/* Pestañas de secciones */}
           <div className="flex flex-wrap gap-2 mb-8">
-            {Object.entries(SECCIONES).map(([key, data]) => (
+            {SECCIONES.map(({ key, titulo }) => (
               <NavLink
                 key={key}
                 to={`/admin/${key}`}
@@ -119,10 +42,12 @@ export function Admin() {
                   }`
                 }
               >
-                {data.titulo}
+                {titulo}
               </NavLink>
             ))}
           </div>
+
+          {/* Subruta anidada activa */}
           <Outlet />
         </main>
       </div>
