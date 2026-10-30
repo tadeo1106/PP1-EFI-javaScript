@@ -4,7 +4,7 @@ import { Pelicula } from "../pages/Pelicula";
 export function MovieCard({ dia, titulo, imagen, etiqueta, mes, id }) {
   return (
     <NavLink to={`/pelicula/${id}`}>
-      <article className="relative flex border border-black bg-white hover:scale-105 transition-transform duration-500">
+      <article className="relative flex border border-black bg-white  hover:scale-105 transition-transform duration-500 dark:bg-neutral-900 dark:border-neutral-800">
         <div className="w-14 shrink-0 bg-neutral-950 text-white flex flex-col items-center justify-center">
           <span className="text-3xl font-black leading-none">{dia}</span>
           <span className="font-bold text-red-700">{mes}</span>
@@ -50,12 +50,12 @@ export function CarteleraCard({ id, imagen, titulo, duracion, genero, index }) {
     >
       <div
         className="flex gap-10 items-center border-b py-2 w-full
-                  group relative transition-all duration-300
-                   hover:bg-neutral-50 hover:zoom-120"
+                  group relative transition-all duration-600
+                   hover:bg-neutral-50 hover:zoom-120 dark:hover:bg-neutral-800 dark:border-neutral-800"
       >
         <span
           className="absolute left-0 top-0 h-full w-1 bg-red-600 origin-top
-                     scale-y-0 group-hover:scale-y-100 transition-transform duration-300"
+                     scale-y-0 group-hover:scale-y-100 transition-transform duration-600"
         ></span>
         <div className="relative w-28 aspect-2/3 shrink-0 m-3 overflow-hidden bg-neutral-100">
           <img
@@ -65,7 +65,7 @@ export function CarteleraCard({ id, imagen, titulo, duracion, genero, index }) {
           />
         </div>
         <div className="flex flex-col items-start">
-          <h1 className="font-bold text-5xl group-hover:text-red-600 transition-colors">
+          <h1 className="font-bold text-5xl group-hover:text-red-600 duration-600 ">
             {titulo}
           </h1>
           <h1 className="text-neutral-400 font-mono text-2xl py-2">

@@ -3,31 +3,11 @@ import { Navar } from "../commponets/navar";
 import { usePeliculaDetalle } from "../hook/UsePeliculaDetalle";
 import { Footer } from "../commponets/Footer";
 import { FuncionCard } from "../commponets/FuncionCard";
+import { FormatearFecha } from "../utils/FormatearFecha";
 
 export function Pelicula() {
   const { id } = useParams();
   const { pelicula, error, isLoading } = usePeliculaDetalle(id);
-
-  const DIAS = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
-
-  function formatearFuncion(fechaHora) {
-    const fecha = new Date(fechaHora);
-    const hh = String(fecha.getHours()).padStart(2, "0");
-    const mm = String(fecha.getMinutes()).padStart(2, "0");
-
-    const dia_num = fecha.getDate();
-
-    const mes = fecha
-      .toLocaleDateString("es-AR", { month: "short" })
-      .replace(".", "")
-      .slice(0, 3);
-
-    const dia = DIAS[fecha.getDay()];
-
-    const hora = `${hh}:${mm}`;
-
-    return { dia, hora, dia_num, mes };
-  }
 
   if (isLoading) {
     return (
@@ -60,8 +40,10 @@ export function Pelicula() {
       <div className="m-5">
         <Navar />
         <div className="grid grid-cols-3 mx-5">
-          <div className="flex flex-col  gap-5 mt-20 ">
-            <h1 className="font-extrabold text-5xl">{pelicula.nombre}</h1>
+          <div className="flex flex-col  gap-5 mt-20">
+            <h1 className="font-extrabold text-5xl max-w-3/4">
+              {pelicula.nombre}
+            </h1>
             <div className="relative w-2/5 overflow-hidden bg-neutral-100 ">
               <img
                 src={pelicula.portada}
@@ -70,7 +52,7 @@ export function Pelicula() {
                 loading="lazy"
               />
             </div>
-            <span className="border w-2/3 "></span>
+            <span className="border w-2/3 dark:border-neutral-800 "></span>
             <h1 className="text-red-600 font-mono text-2xl">
               {pelicula.genero.nombre} . {pelicula.duracion} min
             </h1>
@@ -82,23 +64,21 @@ export function Pelicula() {
           </div>
 
           <div className="mt-20 col-span-2">
-            <div className="border-b-2 text-4xl px-0 pb-3">
-              <h1 className="font-bold uppercase">Funciones</h1>
+            <div className="border-b-2 text-4xl px-0 pb-3 dark:border-neutral-800">
+              <h1 className="font-bold uppercase ">Funciones</h1>
             </div>
             <div>
               {pelicula.funciones && pelicula.funciones.length > 0 ? (
                 pelicula.funciones.map((funcion) => {
-                  const { dia, hora, dia_num, mes } = formatearFuncion(
-                    funcion.fecha_hora,
-                  );
+                  const fecha = FormatearFecha(funcion.fecha_hora);
                   return (
                     <FuncionCard
                       key={funcion.id}
-                      dia={dia}
-                      hora={hora}
+                      dia={fecha.dia}
+                      hora={fecha.hora}
                       precio={funcion.precio}
-                      dia_num={dia_num}
-                      mes={mes}
+                      dia_num={fecha.dia_num}
+                      mes={fecha.mes}
                     />
                   );
                 })

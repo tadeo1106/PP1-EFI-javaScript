@@ -11,7 +11,7 @@ export function CheckboxGeneros({ genero, index, isCheked, onChange }) {
           checked={isCheked}
           onChange={onChange}
         />
-        <span className="w-8 h-8 border-2 border-black peer-checked:bg-black" />
+        <span className="w-8 h-8 border-2 border-black peer-checked:bg-black dark:border-neutral-800 dark:peer-checked:bg-red-600" />
         <span>{genero}</span>
       </label>
     </div>
