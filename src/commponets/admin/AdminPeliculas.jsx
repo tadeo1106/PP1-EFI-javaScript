@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { usePeliculas } from "../hook/UsePeliculas";
-import { useGeneros } from "../hook/UseGeneros";
-import { CampoTexto } from "./CampoTexto";
-import { CampoSelect } from "./CampoSelect";
+import { usePeliculas } from "../../hook/UsePeliculas";
+import { useGeneros } from "../../hook/UseGeneros";
+import { CampoTexto } from "../general/CampoTexto";
+import { CampoSelect } from "../general/CampoSelect";
 import { TablaAdmin } from "./TablaAdmin";
 
 export function AdminPeliculas() {

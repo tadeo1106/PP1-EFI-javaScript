@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { Navar } from "../commponets/navar";
-import { Footer } from "../commponets/Footer";
+import { Navar } from "../commponets/general/navar";
+import { Footer } from "../commponets/general/Footer";
 
 const SECCIONES = [
   { key: "peliculas", titulo: "Películas" },

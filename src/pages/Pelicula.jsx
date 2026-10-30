@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { Navar } from "../commponets/navar";
+import { Navar } from "../commponets/general/navar";
 import { usePeliculaDetalle } from "../hook/UsePeliculaDetalle";
-import { Footer } from "../commponets/Footer";
+import { Footer } from "../commponets/general/Footer";
 import { FuncionCard } from "../commponets/FuncionCard";
 import { FormatearFecha } from "../utils/FormatearFecha";
 

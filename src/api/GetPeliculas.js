@@ -1,8 +1,22 @@
-export async function GetPeliculas(estado, limit) {
+export async function GetPeliculas(
+  estado = "",
+  limit = 10,
+  page = 1,
+  estado_semana = null,
+  genero_id = null,
+) {
   try {
-    const respuesta = await fetch(
-      `http://127.0.0.1:8000/peliculas/?estado=${estado}&page=1&size=${limit}`,
-    );
+    let url = `http://127.0.0.1:8000/peliculas/?page=${page}&size=${limit}`;
+    if (estado) {
+      url += `&estado=${estado}`;
+    }
+    if (genero_id) {
+      url += `&genero_id=${genero_id}`;
+    }
+    if (estado_semana) {
+      url += `&estado_semana=${estado_semana}`;
+    }
+    const respuesta = await fetch(url);
     if (!respuesta.ok) {
       throw new Error("error al cargar las peliculas");
     }

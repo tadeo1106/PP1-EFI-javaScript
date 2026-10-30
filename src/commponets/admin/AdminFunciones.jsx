@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useTodasFunciones } from "../hook/UseTodasFunciones";
-import { usePeliculas } from "../hook/UsePeliculas";
-import { useSalas } from "../hook/UseSalas";
-import { CampoTexto } from "./CampoTexto";
-import { CampoSelect } from "./CampoSelect";
+import { useTodasFunciones } from "../../hook/UseTodasFunciones";
+import { usePeliculas } from "../../hook/UsePeliculas";
+import { useSalas } from "../../hook/UseSalas";
+import { CampoTexto } from "../general/CampoTexto";
+import { CampoSelect } from "../general/CampoSelect";
 import { TablaAdmin } from "./TablaAdmin";
 
 export function AdminFunciones() {

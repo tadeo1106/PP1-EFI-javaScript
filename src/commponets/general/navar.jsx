@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useTema } from "../context/temaContext";
+import { useTema } from "../../context/temaContext";
 import { ButtonTema } from "./ButtonTema";
 const Enlaces = [
   { texto: "inicio", path: "/" },

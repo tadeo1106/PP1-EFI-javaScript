@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useSalas } from "../hook/UseSalas";
-import { CampoTexto } from "./CampoTexto";
+import { useSalas } from "../../hook/UseSalas";
+import { CampoTexto } from "../general/CampoTexto";
 import { TablaAdmin } from "./TablaAdmin";
 
 export function AdminSalas() {

@@ -8,10 +8,10 @@ export function useGeneros() {
 
   useEffect(() => {
     GetGeneros()
-      .then((data) => setGeneros(data.items))
+      .then((data) => setGeneros(data.items || data))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, []);
 
-  return { generos, isLoading, err };
+  return { generos, isLoading, loading: isLoading, isloading: isLoading, err, error: err };
 }
