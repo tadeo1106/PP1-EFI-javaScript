@@ -1,7 +1,7 @@
 export function Hero() {
   return (
-    <div className="relative border border-black min-h-[400px] flex flex-col items-center justify-center px-6 py-10">
-      <span className="absolute top-2 left-2 right-2 h-px bg-black" />
+    <div className="relative border border-black min-h-400px flex flex-col items-center justify-center px-6 py-10 dark:border-neutral-800">
+      <span className="absolute top-2 left-2 right-2 h-px bg-black dark:bg-neutral-800" />
 
       <p className="font-mono text-xs tracking-wid text-red-600 mb-4">
         Luces <span className="mx-1">·</span> Cámara{" "}
@@ -14,7 +14,7 @@ export function Hero() {
 
       <div className="mt-8 flex items-center gap-3">
         <span className="w-2 h-2 bg-red-600 rotate-45" />
-        <span className="w-3.5 h-3.5 bg-black rotate-45" />
+        <span className="w-3.5 h-3.5 bg-black dark:bg-white rotate-45" />
         <span className="w-2 h-2 bg-red-600 rotate-45" />
       </div>
     </div>

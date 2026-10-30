@@ -28,7 +28,7 @@ export function Cartelera() {
                     `font-semibold text-left p-2 text-2xl border-l-4 hover:scale-110 duration-400 ${
                       isActive
                         ? "border-red-600 text-red-600"
-                        : "border-gray-200 hover:text-red-600"
+                        : "border-gray-200 dark:border-neutral-800 hover:text-red-600 "
                     }`
                   }
                 >
@@ -40,7 +40,7 @@ export function Cartelera() {
                     `font-semibold text-left p-2 text-2xl border-l-4 hover:scale-110 duration-400 ${
                       isActive
                         ? "border-red-600 text-red-600"
-                        : "border-gray-200 hover:text-red-600"
+                        : "border-gray-200 dark:border-neutral-800 hover:text-red-600"
                     }`
                   }
                 >

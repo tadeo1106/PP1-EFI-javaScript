@@ -13,7 +13,7 @@ export function ListaCartelera({ estado }) {
   if (loading) {
     return (
       <div>
-        <div className="border-b-2 text-5xl px-0 pb-3 mb-8">
+        <div className="text-5xl px-0 pb-3 mb-8 border-b-2 dark:border-neutral-800">
           <h1 className="font-bold uppercase">{tituloSeccion}</h1>
         </div>
         <div className="flex justify-center items-center h-64">
@@ -28,7 +28,7 @@ export function ListaCartelera({ estado }) {
   if (err) {
     return (
       <div>
-        <div className="border-b-2 text-5xl px-0 pb-3 mb-8">
+        <div className="border-b-2 text-5xl px-0 pb-3 mb-8 dark:border-neutral-800">
           <h1 className="font-bold uppercase">{tituloSeccion}</h1>
         </div>
         <div className="flex flex-col justify-center items-center h-64 gap-2">
@@ -49,7 +49,7 @@ export function ListaCartelera({ estado }) {
 
   return (
     <div>
-      <div className="border-b-2 text-5xl px-0 pb-3">
+      <div className="border-b-2 text-5xl px-0 pb-3 dark:border-neutral-800">
         <h1 className="font-bold uppercase">{tituloSeccion}</h1>
       </div>
 
