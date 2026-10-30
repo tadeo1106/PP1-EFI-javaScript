@@ -1,8 +1,9 @@
 export async function GetPeliculas(estado, limit) {
   try {
-    const respuesta = await fetch(
-      `http://127.0.0.1:8000/peliculas/?estado=${estado}&page=1&size=${limit}`,
-    );
+    const url = estado
+      ? `http://127.0.0.1:8000/peliculas/?estado=${estado}&page=1&size=${limit || 50}`
+      : `http://127.0.0.1:8000/peliculas/?page=1&size=${limit || 50}`;
+    const respuesta = await fetch(url);
     if (!respuesta.ok) {
       throw new Error("error al cargar las peliculas");
     }

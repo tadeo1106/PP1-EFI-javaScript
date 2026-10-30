@@ -8,7 +8,15 @@ export function usePeliculas(estado, limit) {
 
   useEffect(() => {
     GetPeliculas(estado, limit)
-      .then((data) => setPeliculas(data.items))
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setPeliculas(data);
+        } else if (data && Array.isArray(data.items)) {
+          setPeliculas(data.items);
+        } else {
+          setPeliculas([]);
+        }
+      })
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, [estado, limit]);
