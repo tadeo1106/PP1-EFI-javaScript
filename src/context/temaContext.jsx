@@ -23,7 +23,7 @@ export function TemaProvider({ children }) {
     });
   };
   return (
-    <TemaContext.Provider value={{ tema, toggletema, isDark: tema === "dark" }}>
+    <TemaContext.Provider value={{ toggletema, isDark: tema === "dark" }}>
       {children}
     </TemaContext.Provider>
   );
