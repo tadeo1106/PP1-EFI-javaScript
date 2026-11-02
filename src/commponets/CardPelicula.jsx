@@ -1,14 +1,9 @@
 import { NavLink } from "react-router-dom";
 
-export function HomepeliculaCard({ dia, titulo, imagen, etiqueta, mes, id }) {
+export function HomepeliculaCard({ titulo, imagen, etiqueta, id }) {
   return (
     <NavLink to={`/pelicula/${id}`}>
       <article className="relative flex border border-black bg-white  hover:scale-105 transition-transform duration-500 dark:bg-neutral-900 dark:border-neutral-800">
-        <div className="w-14 shrink-0 bg-neutral-950 text-white flex flex-col items-center justify-center">
-          <span className="text-3xl font-black leading-none">{dia}</span>
-          <span className="font-bold text-red-700">{mes}</span>
-        </div>
-
         <div className="relative w-28 aspect-2/3 shrink-0 m-3 overflow-hidden bg-neutral-100">
           <img
             src={imagen}

@@ -9,15 +9,15 @@ export function usePeliculas(
   genero_id = null,
 ) {
   const [peliculas, setPeliculas] = useState([]);
-  const [err, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     GetPeliculas(estado, limit, page, estado_semana, genero_id)
-      .then((data) => setPeliculas(data.items || data))
+      .then((data) => setPeliculas(data.items))
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, [estado, limit, page, estado_semana, genero_id]);
 
-  return { peliculas, loading, isLoading: loading, isloading: loading, err, error: err };
+  return { peliculas, loading, error };
 }
