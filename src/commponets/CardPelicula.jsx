@@ -1,0 +1,74 @@
+import { NavLink } from "react-router-dom";
+
+export function HomepeliculaCard({ titulo, imagen, etiqueta, id }) {
+  return (
+    <NavLink to={`/pelicula/${id}`}>
+      <article className="relative flex border border-black bg-white  hover:scale-105 transition-transform duration-500 dark:bg-neutral-900 dark:border-neutral-800">
+        <div className="relative w-28 aspect-2/3 shrink-0 m-3 overflow-hidden bg-neutral-100">
+          <img
+            src={imagen}
+            alt={titulo}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+        </div>
+
+        <div className="flex-1 flex flex-col justify-between p-5">
+          <div>
+            <p className="font-mono text-[10px] tracking-[0.2em] text-red-700 uppercase">
+              {etiqueta}
+            </p>
+            <h3 className="mt-3 text-2xl font-black leading-tight tracking-tight">
+              {titulo}
+            </h3>
+          </div>
+
+          <div className="flex items-end justify-end">
+            <button className="w-8 h-8 border border-black flex items-center justify-center hover:bg-red-700 hover:text-white transition-colors">
+              →
+            </button>
+          </div>
+        </div>
+      </article>
+    </NavLink>
+  );
+}
+
+export function CarteleraCard({ id, imagen, titulo, duracion, genero, index }) {
+  return (
+    <NavLink
+      to={`/pelicula/${id}`}
+
+      style={{ animationDelay: `${Math.min(index, 8) * 80}ms` }}
+      className="animate-fade-up motion-reduce:animate-none "
+    >
+      <div
+        className="flex gap-10 items-center border-b py-2 w-full
+                  group relative transition-all duration-600
+                   hover:bg-neutral-50 hover:zoom-120 dark:hover:bg-neutral-800 dark:border-neutral-800"
+      >
+        <span
+          className="absolute left-0 top-0 h-full w-1 bg-red-600 origin-top
+                     scale-y-0 group-hover:scale-y-100 transition-transform duration-600"
+        ></span>
+        <div className="relative w-28 aspect-2/3 shrink-0 m-3 overflow-hidden bg-neutral-100">
+          <img
+            src={imagen}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex flex-col items-start">
+          <h1 className="font-bold text-5xl group-hover:text-red-600 duration-600 ">
+            {titulo}
+          </h1>
+          <h1 className="text-neutral-400 font-mono text-2xl py-2">
+            {genero} . {duracion} min
+          </h1>
+        </div>
+      </div>
+    </NavLink>
+  );
+}
+
+export const MovieCard = HomepeliculaCard;
