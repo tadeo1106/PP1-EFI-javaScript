@@ -3,15 +3,15 @@ import { GetFunciones } from "../api/GetFunciones";
 
 export function useTodasFunciones() {
   const [funciones, setFunciones] = useState([]);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     GetFunciones()
-      .then((data) => setFunciones(data.items || data))
+      .then((data) => setFunciones(data.items))
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, []);
 
-  return { funciones, loading, isLoading: loading, isloading: loading, error, err: error };
+  return { funciones, loading, error };
 }

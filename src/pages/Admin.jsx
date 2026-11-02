@@ -16,19 +16,14 @@ export function Admin() {
         <Navar />
 
         <main className="mt-10 mb-28 max-w-7xl mx-auto">
-          {/* Header del panel */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-4 border-b border-black">
             <div>
-              <p className="font-mono text-[10px] tracking-[0.2em] text-red-700 uppercase">
-                Panel de control
-              </p>
               <h1 className="text-3xl md:text-4xl font-black tracking-tight mt-1">
                 Panel de administración
               </h1>
             </div>
           </div>
 
-          {/* Pestañas de secciones */}
           <div className="flex flex-wrap gap-2 mb-8">
             {SECCIONES.map(({ key, titulo }) => (
               <NavLink
@@ -47,7 +42,6 @@ export function Admin() {
             ))}
           </div>
 
-          {/* Subruta anidada activa */}
           <Outlet />
         </main>
       </div>

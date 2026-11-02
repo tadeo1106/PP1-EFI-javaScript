@@ -3,15 +3,15 @@ import { GetGeneros } from "../api/GetGeneros";
 
 export function useGeneros() {
   const [generos, setGeneros] = useState([]);
-  const [err, setError] = useState(null);
-  const [isLoading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     GetGeneros()
-      .then((data) => setGeneros(data.items || data))
-      .catch((error) => setError(error))
+      .then((data) => setGeneros(data.items))
+      .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, []);
 
-  return { generos, isLoading, loading: isLoading, isloading: isLoading, err, error: err };
+  return { generos, loading, error };
 }

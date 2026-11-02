@@ -5,7 +5,7 @@ import { CarteleraCard } from "../CardPelicula";
 export function ListaCartelera({ estado }) {
   const { generoId = null } = useOutletContext();
 
-  const { peliculas, loading, err } = usePeliculas(
+  const { peliculas, loading, error } = usePeliculas(
     estado,
     10,
     1,
@@ -31,7 +31,7 @@ export function ListaCartelera({ estado }) {
     );
   }
 
-  if (err) {
+  if (error) {
     return (
       <div>
         <div className="border-b-2 text-5xl px-0 pb-3 mb-8 dark:border-neutral-800">
@@ -68,7 +68,7 @@ export function ListaCartelera({ estado }) {
               imagen={pelicula.portada}
               titulo={pelicula.nombre}
               duracion={pelicula.duracion}
-              genero={pelicula.genero?.nombre}
+              genero={pelicula.genero.nombre}
             />
           ))}
         </div>

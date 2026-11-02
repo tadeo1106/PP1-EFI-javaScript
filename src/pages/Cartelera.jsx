@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export function Cartelera() {
   const [generoId, setGeneroId] = useState(null);
-  const { generos, isloading, err } = useGeneros();
+  const { generos, loading, error } = useGeneros();
 
   const handleSelectGenero = (id) => {
     setGeneroId((prev) => (prev === id ? null : id));
@@ -57,12 +57,12 @@ export function Cartelera() {
                   isCheked={generoId === null}
                   onChange={() => setGeneroId(null)}
                 />
-                {isloading && (
+                {loading && (
                   <p className="font-mono text-xs text-gray-400">
                     Cargando géneros...
                   </p>
                 )}
-                {err && (
+                {error && (
                   <p className="font-mono text-xs text-red-600">
                     Error al cargar géneros
                   </p>

@@ -7,9 +7,9 @@ import { FormatearFecha } from "../utils/FormatearFecha";
 
 export function Pelicula() {
   const { id } = useParams();
-  const { pelicula, error, isLoading } = usePeliculaDetalle(id);
+  const { pelicula, loading, error } = usePeliculaDetalle(id);
 
-  if (isLoading) {
+  if (loading) {
     return (
       <div className="m-5">
         <Navar />

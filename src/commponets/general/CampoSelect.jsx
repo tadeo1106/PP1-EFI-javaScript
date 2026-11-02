@@ -3,34 +3,37 @@ export function CampoSelect({
   name,
   value,
   onChange,
-  opciones = [],
+  opciones,
   required = true,
 }) {
+  const selectId = `select-${name}`;
+
   return (
     <div className="flex flex-col gap-1.5">
       <label
-        htmlFor={`select-${name || label}`}
-        className="font-mono text-xs tracking-wider uppercase text-neutral-800"
+        htmlFor={selectId}
+        className="font-mono text-xs tracking-wider uppercase text-neutral-800 dark:text-white"
       >
         {label}
       </label>
       <select
-        id={`select-${name || label}`}
+        id={selectId}
         name={name}
         value={value}
         onChange={onChange}
         required={required}
-        className="bg-white text-black placeholder:text-neutral-400 border border-black p-2 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-red-700"
+        className="bg-white dark:bg-neutral-800 text-black dark:text-white placeholder:text-neutral-400 border border-black p-2 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-red-700"
       >
         <option value="" className="bg-white text-black">
-          Seleccionar {label.toLowerCase()}...
+          Seleccionar {label}...
         </option>
         {opciones.map((opcion) => {
-          const val = typeof opcion === "object" ? opcion.value : opcion;
-          const txt = typeof opcion === "object" ? opcion.label : opcion;
+          const valor = opcion.value;
+          const texto = opcion.label;
+
           return (
-            <option key={val} value={val} className="bg-white text-black">
-              {txt}
+            <option key={valor} value={valor} className="bg-white text-black">
+              {texto}
             </option>
           );
         })}
