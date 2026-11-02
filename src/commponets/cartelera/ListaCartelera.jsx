@@ -68,7 +68,7 @@ export function ListaCartelera({ estado }) {
               imagen={pelicula.portada}
               titulo={pelicula.nombre}
               duracion={pelicula.duracion}
-              genero={pelicula.genero?.nombre}
+              genero={pelicula.genero.nombre}
             />
           ))}
         </div>
