@@ -1,15 +1,20 @@
+import { NavLink } from "react-router-dom";
+
 export function Footer() {
   return (
     <footer class=" grid grid-cols-3  bg-black  pt-12 px-8 pb-8 mt-52">
       <div class="text-white">
         <p class="mb-5 font-bold">TIENDA</p>
         <div class="flex flex-col gap-2 ">
-          <a href="catalogo.htm" class="hover:text-gray-400 transition-colors">
+          <NavLink to={"/"} class="hover:text-gray-400 transition-colors">
             Inicio
-          </a>
-          <a href="" class="hover:text-gray-400 transition-colors">
+          </NavLink>
+          <NavLink
+            to="/cartelera"
+            class="hover:text-gray-400 transition-colors"
+          >
             Cartelera
-          </a>
+          </NavLink>
           <a href="" class="hover:text-gray-400 transition-colors">
             Medios de pago
           </a>
