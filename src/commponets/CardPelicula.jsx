@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export function HomepeliculaCard({ titulo, imagen, etiqueta, id }) {
+export function HomePeliculaCard({ titulo, imagen, etiqueta, id }) {
   return (
     <NavLink to={`/pelicula/${id}`}>
       <article className="relative flex border border-black bg-white  hover:scale-105 transition-transform duration-500 dark:bg-neutral-900 dark:border-neutral-800">
@@ -70,5 +70,3 @@ export function CarteleraCard({ id, imagen, titulo, duracion, genero, index }) {
     </NavLink>
   );
 }
-
-export const MovieCard = HomepeliculaCard;

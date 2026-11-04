@@ -55,7 +55,7 @@ export function AdminFunciones() {
     e.preventDefault();
 
     if (!peliculaId) {
-      mostrarFeedback("error", "Tenes que seleccionar una película");
+      mostrarFeedback("error", "Tenes que seleccionar una pelicula");
       return;
     }
     if (!salaId) {
@@ -113,7 +113,7 @@ export function AdminFunciones() {
   };
 
   const handleEliminar = async (id) => {
-    if (!window.confirm("¿Estás seguro de eliminar esta funcion?")) return;
+    if (!window.confirm("¿Estas seguro de eliminar esta funcion?")) return;
     try {
       await EliminarFuncion(id);
       mostrarFeedback("", "funcion eliminada correctamente");
@@ -128,7 +128,7 @@ export function AdminFunciones() {
   };
 
   const columnas = [
-    { key: "pelicula", label: "Película" },
+    { key: "pelicula", label: "Pelicula" },
     { key: "sala", label: "Sala" },
     { key: "fecha_hora", label: "Fecha y hora" },
     { key: "precio", label: "Precio" },

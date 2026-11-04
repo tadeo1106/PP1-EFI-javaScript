@@ -4,8 +4,8 @@ export function Hero() {
       <span className="absolute top-2 left-2 right-2 h-px bg-black dark:bg-neutral-800" />
 
       <p className="font-mono text-xs tracking-wid text-red-600 mb-4">
-        Luces <span className="mx-1">·</span> Cámara{" "}
-        <span className="mx-1">·</span> Emoción
+        Luces <span className="mx-1">·</span> Camara{" "}
+        <span className="mx-1">·</span> Emocion
       </p>
 
       <h1 className="text-center font-black text-7xl md:text-9xl">
