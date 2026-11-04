@@ -25,7 +25,7 @@ export function TablaAdmin({
           Error
         </p>
         <p className="font-mono text-sm text-neutral-800">
-          Error al cargar los datos desde
+          Error al cargar los datos
         </p>
       </div>
     );
@@ -58,7 +58,7 @@ export function TablaAdmin({
             <div className="space-y-3 mb-4">
               {estaEditando && (
                 <div className="inline-block bg-red-700 text-white font-mono text-[10px] uppercase tracking-widest px-2 py-0.5">
-                  En edición
+                  En edicion
                 </div>
               )}
 

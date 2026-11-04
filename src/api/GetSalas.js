@@ -15,19 +15,6 @@ export async function GetSalas(limit = 50) {
   }
 }
 
-export async function GetSalaDetalle(id) {
-  try {
-    const respuesta = await fetch(`${API_URL}/salas/${id}`);
-    if (!respuesta.ok) {
-      throw new Error("error al cargar la sala");
-    }
-    return respuesta.json();
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-}
-
 export async function CrearSala(data) {
   try {
     const respuesta = await fetch(`${API_URL}/salas/`, {

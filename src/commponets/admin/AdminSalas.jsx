@@ -65,7 +65,7 @@ export function AdminSalas() {
   };
 
   const handleEliminar = async (id) => {
-    if (!window.confirm("Estás seguro de eliminar esta sala?")) return;
+    if (!window.confirm("Estas seguro de eliminar esta sala?")) return;
     try {
       await EliminarSala(id);
       mostrarFeedback("exito", "Sala eliminada correctamente");

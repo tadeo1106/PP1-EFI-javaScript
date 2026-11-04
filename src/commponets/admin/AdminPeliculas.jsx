@@ -51,11 +51,11 @@ export function AdminPeliculas() {
       return;
     }
     if (!generoId) {
-      mostrarFeedback("error", "Tenés que seleccionar un genero");
+      mostrarFeedback("error", "Tenes que seleccionar un genero");
       return;
     }
     if (!duracion || Number(duracion) <= 0) {
-      mostrarFeedback("error", "La duración debe ser mayor a 0 minutos");
+      mostrarFeedback("error", "La duracion debe ser mayor a 0 minutos");
       return;
     }
 
@@ -95,7 +95,7 @@ export function AdminPeliculas() {
   };
 
   const handleEliminar = async (id) => {
-    if (!window.confirm("Estás seguro de eliminar esta pelicula?")) return;
+    if (!window.confirm("EstAs seguro de eliminar esta pelicula?")) return;
     try {
       await EliminarPelicula(id);
       mostrarFeedback("", "Pelicula eliminada correctamente");
@@ -115,7 +115,7 @@ export function AdminPeliculas() {
   const columnas = [
     { key: "nombre", label: "Nombre" },
     { key: "genero", label: "Genero" },
-    { key: "duracion", label: "Duración (min)" },
+    { key: "duracion", label: "Duracion (min)" },
     { key: "portada", label: "Portada (URL)" },
     { key: "descripcion", label: "descripcion de la pelicula" },
   ];
@@ -170,7 +170,7 @@ export function AdminPeliculas() {
           />
 
           <CampoTexto
-            label="Duración (min)"
+            label="Duracion (min)"
             name="duracion"
             type="number"
             value={duracion}
@@ -187,7 +187,7 @@ export function AdminPeliculas() {
 
           <div className="md:col-span-2">
             <CampoTexto
-              label="Descripción"
+              label="Descripcion"
               name="descripcion"
               type="text"
               value={descripcion}

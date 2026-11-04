@@ -59,12 +59,12 @@ export function Cartelera() {
                 />
                 {loading && (
                   <p className="font-mono text-xs text-gray-400">
-                    Cargando géneros...
+                    Cargando generos...
                   </p>
                 )}
                 {error && (
                   <p className="font-mono text-xs text-red-600">
-                    Error al cargar géneros
+                    Error al cargar generos
                   </p>
                 )}
                 {generos &&
