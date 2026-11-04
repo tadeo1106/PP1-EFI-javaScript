@@ -27,14 +27,14 @@ export function Footer() {
             Contacto
           </a>
           <a href="" class="hover:text-gray-400 transition-colors">
-            Botón de arrepentimiento
+            Boton de arrepentimiento
           </a>
           <a href="" class="hover:text-gray-400 transition-colors">
             Preguntas frecuentes
           </a>
 
           <a href="" class="hover:text-gray-400 transition-colors">
-            Política de privacidad
+            Politica de privacidad
           </a>
         </div>
       </div>

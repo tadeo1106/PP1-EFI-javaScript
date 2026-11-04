@@ -24,7 +24,7 @@ export function ListaCartelera({ estado }) {
         </div>
         <div className="flex justify-center items-center h-64">
           <p className="font-mono text-xl animate-pulse text-neutral-600">
-            Cargando películas...
+            Cargando peliculas...
           </p>
         </div>
       </div>
@@ -39,7 +39,7 @@ export function ListaCartelera({ estado }) {
         </div>
         <div className="flex flex-col justify-center items-center h-64 gap-2">
           <p className="font-mono text-xl text-red-600">
-            Error al cargar las películas.
+            Error al cargar las peliculas.
           </p>
         </div>
       </div>
@@ -55,7 +55,7 @@ export function ListaCartelera({ estado }) {
       {peliculas.length === 0 ? (
         <div className="py-16 text-center">
           <p className="font-mono text-lg text-neutral-500">
-            No se encontraron películas
+            No se encontraron peliculas
           </p>
         </div>
       ) : (

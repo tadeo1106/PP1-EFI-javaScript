@@ -15,21 +15,6 @@ export async function GetGeneros(page = 1, size = 10) {
   }
 }
 
-export async function GetGeneroDetalle(id) {
-  try {
-    const respuesta = await fetch(`${API_URL}/generos/${id}`);
-    if (!respuesta.ok) {
-      throw new Error("error al cargar el genero");
-    }
-    return respuesta.json();
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-}
-
-export const GetGeneroPorId = GetGeneroDetalle;
-
 export async function CrearGenero(data) {
   try {
     const respuesta = await fetch(`${API_URL}/generos/`, {

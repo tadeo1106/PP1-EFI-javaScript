@@ -31,6 +31,11 @@ export function AdminGeneros() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!nombre.trim()) {
+      mostrarFeedback("error", "el genero debe tener un nombre");
+      return;
+    }
+
     try {
       if (editandoId) {
         await ActualizarGenero(editandoId, { nombre });
@@ -53,7 +58,7 @@ export function AdminGeneros() {
   };
 
   const handleEliminar = async (id) => {
-    if (!window.confirm("Estás seguro de eliminar este genero?")) return;
+    if (!window.confirm("Estas seguro de eliminar este genero?")) return;
     try {
       await EliminarGenero(id);
       mostrarFeedback("exito", "genero eliminado correctamente");
@@ -65,7 +70,7 @@ export function AdminGeneros() {
     } catch {
       mostrarFeedback(
         "error",
-        "Error al eliminar el genero (puede tener películas asignadas)",
+        "Error al eliminar el genero (puede tener peliculas asignadas)",
       );
     }
   };

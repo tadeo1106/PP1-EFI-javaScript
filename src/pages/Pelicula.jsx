@@ -27,7 +27,7 @@ export function Pelicula() {
         <Navar />
         <div className="flex flex-col justify-center items-center h-96 gap-4">
           <p className="text-red-600 font-mono text-xl">
-            {error ? "Error al cargar la película" : "Película no encontrada"}
+            {error ? "Error al cargar la pelicula" : "Pelicula no encontrada"}
           </p>
         </div>
         <Footer />
